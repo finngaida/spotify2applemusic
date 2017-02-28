@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Sweeft
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        let song = SpotifySong(name: "Call me maybe", artist: "carly rae jepsen", album: "kiss")
+        ItunesAPI().search(for: song).onSuccess { item in
+            print(item)
+        }
+        .onError { error in
+            switch error {
+            case .invalidData(let data):
+                print(data.string.?)
+            default: break
+            }
+        }
+        
         // Override point for customization after application launch.
         return true
     }

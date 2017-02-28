@@ -1,0 +1,6 @@
+framework module Pods_Spotify2AppleMusic {
+  umbrella header "Pods-Spotify2AppleMusic-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E9DB8011E65FBC800FF4A1F /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9DB8001E65FBC800FF4A1F /* Song.swift */; };
+		1AEB662495824FCC473C86C7 /* Pods_Spotify2AppleMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5AE6D5ED49AC7B5532F759 /* Pods_Spotify2AppleMusic.framework */; };
 		C53617B31E658E8E00D82BA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53617B21E658E8E00D82BA4 /* AppDelegate.swift */; };
 		C53617B51E658E8E00D82BA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53617B41E658E8E00D82BA4 /* ViewController.swift */; };
 		C53617B81E658E8E00D82BA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C53617B61E658E8E00D82BA4 /* Main.storyboard */; };
 		C53617BA1E658E8E00D82BA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C53617B91E658E8E00D82BA4 /* Assets.xcassets */; };
 		C53617BD1E658E8E00D82BA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C53617BB1E658E8E00D82BA4 /* LaunchScreen.storyboard */; };
-		C53617C61E659A4600D82BA4 /* itunes.csv in Resources */ = {isa = PBXBuildFile; fileRef = C53617C51E659A4600D82BA4 /* itunes.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E9DB8001E65FBC800FF4A1F /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		3B5AE6D5ED49AC7B5532F759 /* Pods_Spotify2AppleMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spotify2AppleMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E896B763DC6D4CADBE8F54C /* Pods-Spotify2AppleMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotify2AppleMusic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spotify2AppleMusic/Pods-Spotify2AppleMusic.debug.xcconfig"; sourceTree = "<group>"; };
+		7666B915D74335730B636C6B /* Pods-Spotify2AppleMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotify2AppleMusic.release.xcconfig"; path = "Pods/Target Support Files/Pods-Spotify2AppleMusic/Pods-Spotify2AppleMusic.release.xcconfig"; sourceTree = "<group>"; };
 		C53617AF1E658E8E00D82BA4 /* Spotify2AppleMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotify2AppleMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C53617B21E658E8E00D82BA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C53617B41E658E8E00D82BA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,7 +29,6 @@
 		C53617BC1E658E8E00D82BA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C53617BE1E658E8E00D82BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C53617C41E65969B00D82BA4 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
-		C53617C51E659A4600D82BA4 /* itunes.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = itunes.csv; path = ../itunes.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,17 +36,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AEB662495824FCC473C86C7 /* Pods_Spotify2AppleMusic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1DE936627459D004D39766F5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5E896B763DC6D4CADBE8F54C /* Pods-Spotify2AppleMusic.debug.xcconfig */,
+				7666B915D74335730B636C6B /* Pods-Spotify2AppleMusic.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C0671FF791BC0AC42ECCB712 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B5AE6D5ED49AC7B5532F759 /* Pods_Spotify2AppleMusic.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C53617A61E658E8E00D82BA4 = {
 			isa = PBXGroup;
 			children = (
 				C53617B11E658E8E00D82BA4 /* Spotify2AppleMusic */,
 				C53617B01E658E8E00D82BA4 /* Products */,
+				1DE936627459D004D39766F5 /* Pods */,
+				C0671FF791BC0AC42ECCB712 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +81,9 @@
 		C53617B11E658E8E00D82BA4 /* Spotify2AppleMusic */ = {
 			isa = PBXGroup;
 			children = (
-				C53617C51E659A4600D82BA4 /* itunes.csv */,
 				C53617B21E658E8E00D82BA4 /* AppDelegate.swift */,
 				C53617B41E658E8E00D82BA4 /* ViewController.swift */,
+				0E9DB8001E65FBC800FF4A1F /* Song.swift */,
 				C53617C41E65969B00D82BA4 /* MyPlayground.playground */,
 				C53617B61E658E8E00D82BA4 /* Main.storyboard */,
 				C53617B91E658E8E00D82BA4 /* Assets.xcassets */,
@@ -76,9 +100,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C53617C11E658E8E00D82BA4 /* Build configuration list for PBXNativeTarget "Spotify2AppleMusic" */;
 			buildPhases = (
+				3F38D1AAF18574F96AE5FC83 /* [CP] Check Pods Manifest.lock */,
 				C53617AB1E658E8E00D82BA4 /* Sources */,
 				C53617AC1E658E8E00D82BA4 /* Frameworks */,
 				C53617AD1E658E8E00D82BA4 /* Resources */,
+				F454AFB417440EA2E4AAAAE2 /* [CP] Embed Pods Frameworks */,
+				9043F5BD87A5B553276DC40B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -101,7 +128,7 @@
 				TargetAttributes = {
 					C53617AE1E658E8E00D82BA4 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = PTHJ3DNH6P;
+						DevelopmentTeam = ZGV2PY25EN;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -129,7 +156,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C53617C61E659A4600D82BA4 /* itunes.csv in Resources */,
 				C53617BD1E658E8E00D82BA4 /* LaunchScreen.storyboard in Resources */,
 				C53617BA1E658E8E00D82BA4 /* Assets.xcassets in Resources */,
 				C53617B81E658E8E00D82BA4 /* Main.storyboard in Resources */,
@@ -138,11 +164,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3F38D1AAF18574F96AE5FC83 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9043F5BD87A5B553276DC40B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Spotify2AppleMusic/Pods-Spotify2AppleMusic-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F454AFB417440EA2E4AAAAE2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Spotify2AppleMusic/Pods-Spotify2AppleMusic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C53617AB1E658E8E00D82BA4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E9DB8011E65FBC800FF4A1F /* Song.swift in Sources */,
 				C53617B51E658E8E00D82BA4 /* ViewController.swift in Sources */,
 				C53617B31E658E8E00D82BA4 /* AppDelegate.swift in Sources */,
 			);
@@ -265,12 +340,13 @@
 		};
 		C53617C21E658E8E00D82BA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E896B763DC6D4CADBE8F54C /* Pods-Spotify2AppleMusic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PTHJ3DNH6P;
+				DEVELOPMENT_TEAM = ZGV2PY25EN;
 				INFOPLIST_FILE = Spotify2AppleMusic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.finngaida.Spotify2AppleMusic;
+				PRODUCT_BUNDLE_IDENTIFIER = io.quintero.Spotify2AppleMusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -278,12 +354,13 @@
 		};
 		C53617C31E658E8E00D82BA4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7666B915D74335730B636C6B /* Pods-Spotify2AppleMusic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PTHJ3DNH6P;
+				DEVELOPMENT_TEAM = ZGV2PY25EN;
 				INFOPLIST_FILE = Spotify2AppleMusic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.finngaida.Spotify2AppleMusic;
+				PRODUCT_BUNDLE_IDENTIFIER = io.quintero.Spotify2AppleMusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -308,6 +385,7 @@
 				C53617C31E658E8E00D82BA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

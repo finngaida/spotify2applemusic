@@ -20,8 +20,8 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-    <key>NSAppleMusicUsageDescription</key>
-    <string>Bla</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Bla</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
