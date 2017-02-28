@@ -24,7 +24,7 @@
 		C53617BC1E658E8E00D82BA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C53617BE1E658E8E00D82BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C53617C41E65969B00D82BA4 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
-		C53617C51E659A4600D82BA4 /* itunes.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = itunes.csv; sourceTree = "<group>"; };
+		C53617C51E659A4600D82BA4 /* itunes.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = itunes.csv; path = ../itunes.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

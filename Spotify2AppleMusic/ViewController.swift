@@ -11,9 +11,16 @@ import MediaPlayer
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var loader: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loader.frame = CGRect(x: 0, y: self.view.frame.height - 5, width: self.view.frame.width, height: 5)
+    }
+    
+    func setProgress(p: CGFloat) {
+        UIView.animate(withDuration: 0.2) { 
+            self.loader.frame = CGRect(x: 0, y: self.loader.frame.origin.y, width: self.view.frame.width * p, height: self.loader.frame.height)
+        }
     }
     
     @IBAction func go() {
@@ -24,26 +31,35 @@ class ViewController: UIViewController {
             let myPlaylistsQuery = MPMediaQuery.playlists()
             guard let playlists = myPlaylistsQuery.collections else { return }
             
-            for playlist in playlists {
-                let name = playlist.value(forProperty: MPMediaPlaylistPropertyName) ?? "no name"
-                let uuid = playlist.value(forProperty: MPMediaPlaylistPropertyPersistentID) ?? "no id"
-                
-                if let u = uuid as? UInt64, u == 16952020737016090427 {
-                    print("Name: \(name), UUID: \(uuid)")
-                    
-                    if let plist = playlist as? MPMediaPlaylist {
-                        
-                        for id in csv {
-                            plist.addItem(withProductID: id, completionHandler: { (error) in
-                                if let e = error { print("\(id) didn't end so well: \(e)") }
-                                else { print("added \(id)") }
-                            })
-                        }
+            self.setProgress(p: 0)
+            
+            func continueWith(index: Int) {
+                if let plist = playlists[index] as? MPMediaPlaylist {
+                    for (i, id) in csv.enumerated() {
+                        plist.addItem(withProductID: id, completionHandler: { (error) in
+                            if let e = error { print("\(id) didn't end so well: \(e)") }
+                            else {
+                                print("added \(i): \(id)")
+                                self.setProgress(p: CGFloat(i+1) / CGFloat(csv.count))
+                            }
+                        })
                     }
                 }
-                
             }
+            
+            
+            let action = UIAlertController(title: "Choose your playlist", message: "add \(csv.count) tracks", preferredStyle: .actionSheet)
+            for (i, playlist) in playlists.enumerated() {
+                let name = playlist.value(forProperty: MPMediaPlaylistPropertyName) ?? "no name"
+                
+                action.addAction(UIAlertAction(title: "\(name)", style: .default, handler: { _ in
+                    continueWith(index: i)
+                }))
+            }
+            action.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(action, animated: true, completion: nil)
         }
+        
     }
     
     func parseCSV() -> [String]? {

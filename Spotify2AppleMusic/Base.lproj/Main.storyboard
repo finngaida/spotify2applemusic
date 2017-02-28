@@ -21,18 +21,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dJ-sa-C7q">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dJ-sa-C7q">
                                 <rect key="frame" x="88" y="260" width="199" height="146"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="146" id="OjX-wE-8l7"/>
+                                    <constraint firstAttribute="width" constant="199" id="YaR-Ej-NBJ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="104"/>
                                 <state key="normal" title="GO"/>
                                 <connections>
                                     <action selector="go" destination="BYZ-38-t0r" eventType="touchUpInside" id="QI8-Zh-g1P"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2z5-TW-HM5">
+                                <rect key="frame" x="0.0" y="661" width="375" height="5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.18204301890844943" green="0.44461397526202628" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6dJ-sa-C7q" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8hC-6y-1gQ"/>
+                            <constraint firstItem="6dJ-sa-C7q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NJq-5J-yy4"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loader" destination="2z5-TW-HM5" id="BE9-1j-pN3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
