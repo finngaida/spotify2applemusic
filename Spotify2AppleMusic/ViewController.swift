@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Sweeft
 import MediaPlayer
 
 class ViewController: UIViewController {
@@ -17,6 +18,11 @@ class ViewController: UIViewController {
         loader.frame = CGRect(x: 0, y: self.view.frame.height - 5, width: self.view.frame.width, height: 5)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Spotify.shared.loginIfNeeded(viewController: self)
+    }
+    
     func setProgress(p: CGFloat) {
         UIView.animate(withDuration: 0.2) { 
             self.loader.frame = CGRect(x: 0, y: self.loader.frame.origin.y, width: self.view.frame.width * p, height: self.loader.frame.height)
@@ -24,8 +30,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func go() {
-        guard let csv = parseCSV() else { return print("no csv") }
         
+        Spotify.shared.fetchSongs().onSuccess { songs in
+            return ItunesAPI().search(for: songs)
+        }
+        .future
+        .onSuccess(call: self.handle)
+    }
+    
+    func handle(songs: [String]) {
         MPMediaLibrary.requestAuthorization { (status) in
             guard status == MPMediaLibraryAuthorizationStatus.authorized else { return print("not authorized") }
             let myPlaylistsQuery = MPMediaQuery.playlists()
@@ -35,12 +48,12 @@ class ViewController: UIViewController {
             
             func continueWith(index: Int) {
                 if let plist = playlists[index] as? MPMediaPlaylist {
-                    for (i, id) in csv.enumerated() {
+                    songs => { id, index in
                         plist.addItem(withProductID: id, completionHandler: { (error) in
                             if let e = error { print("\(id) didn't end so well: \(e)") }
                             else {
-                                print("added \(i): \(id)")
-                                self.setProgress(p: CGFloat(i+1) / CGFloat(csv.count))
+                                print("added \(index): \(id)")
+                                self.setProgress(p: CGFloat(index + 1) / CGFloat(songs.count))
                             }
                         })
                     }
@@ -48,7 +61,7 @@ class ViewController: UIViewController {
             }
             
             
-            let action = UIAlertController(title: "Choose your playlist", message: "add \(csv.count) tracks", preferredStyle: .actionSheet)
+            let action = UIAlertController(title: "Choose your playlist", message: "add \(songs.count) tracks", preferredStyle: .actionSheet)
             for (i, playlist) in playlists.enumerated() {
                 let name = playlist.value(forProperty: MPMediaPlaylistPropertyName) ?? "no name"
                 
@@ -58,19 +71,6 @@ class ViewController: UIViewController {
             }
             action.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             self.present(action, animated: true, completion: nil)
-        }
-        
-    }
-    
-    func parseCSV() -> [String]? {
-        
-        do {
-            let str = try String(contentsOfFile: Bundle.main.path(forResource: "itunes", ofType: "csv")!)
-            let ids = str.components(separatedBy: "\n")
-            return ids
-        } catch let e {
-            print("error \(e)")
-            return nil
         }
     }
     

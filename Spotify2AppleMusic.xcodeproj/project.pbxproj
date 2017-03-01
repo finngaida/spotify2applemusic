@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0E9DB8011E65FBC800FF4A1F /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9DB8001E65FBC800FF4A1F /* Song.swift */; };
+		0ED2F0E01E662C8A004BBB31 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ED2F0DE1E662C8A004BBB31 /* SpotifyAuthentication.framework */; };
+		0ED2F0E11E662C8A004BBB31 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ED2F0DF1E662C8A004BBB31 /* SpotifyMetadata.framework */; };
+		0ED2F0E31E662CAB004BBB31 /* Spotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2F0E21E662CAB004BBB31 /* Spotify.swift */; };
+		0ED2F0E51E662DF1004BBB31 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ED2F0E41E662DF1004BBB31 /* SystemConfiguration.framework */; };
+		0ED2F0E81E6632E9004BBB31 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ED2F0E71E6632E9004BBB31 /* AVFoundation.framework */; };
+		0ED2F0EA1E663330004BBB31 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ED2F0E91E663330004BBB31 /* SpotifyAudioPlayback.framework */; };
 		1AEB662495824FCC473C86C7 /* Pods_Spotify2AppleMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5AE6D5ED49AC7B5532F759 /* Pods_Spotify2AppleMusic.framework */; };
 		C53617B31E658E8E00D82BA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53617B21E658E8E00D82BA4 /* AppDelegate.swift */; };
 		C53617B51E658E8E00D82BA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53617B41E658E8E00D82BA4 /* ViewController.swift */; };
@@ -18,6 +24,13 @@
 
 /* Begin PBXFileReference section */
 		0E9DB8001E65FBC800FF4A1F /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		0ED2F0DE1E662C8A004BBB31 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyAuthentication.framework; path = Frameworks/SpotifyAuthentication.framework; sourceTree = "<group>"; };
+		0ED2F0DF1E662C8A004BBB31 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyMetadata.framework; path = Frameworks/SpotifyMetadata.framework; sourceTree = "<group>"; };
+		0ED2F0E21E662CAB004BBB31 /* Spotify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spotify.swift; sourceTree = "<group>"; };
+		0ED2F0E41E662DF1004BBB31 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0ED2F0E71E6632E9004BBB31 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		0ED2F0E91E663330004BBB31 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyAudioPlayback.framework; path = Frameworks/SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
+		0ED2F0EB1E6633D6004BBB31 /* Spotify2AppleMusic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Spotify2AppleMusic-Bridging-Header.h"; sourceTree = "<group>"; };
 		3B5AE6D5ED49AC7B5532F759 /* Pods_Spotify2AppleMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spotify2AppleMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E896B763DC6D4CADBE8F54C /* Pods-Spotify2AppleMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotify2AppleMusic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spotify2AppleMusic/Pods-Spotify2AppleMusic.debug.xcconfig"; sourceTree = "<group>"; };
 		7666B915D74335730B636C6B /* Pods-Spotify2AppleMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotify2AppleMusic.release.xcconfig"; path = "Pods/Target Support Files/Pods-Spotify2AppleMusic/Pods-Spotify2AppleMusic.release.xcconfig"; sourceTree = "<group>"; };
@@ -28,7 +41,6 @@
 		C53617B91E658E8E00D82BA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C53617BC1E658E8E00D82BA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C53617BE1E658E8E00D82BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C53617C41E65969B00D82BA4 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,7 +48,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ED2F0E81E6632E9004BBB31 /* AVFoundation.framework in Frameworks */,
+				0ED2F0E51E662DF1004BBB31 /* SystemConfiguration.framework in Frameworks */,
 				1AEB662495824FCC473C86C7 /* Pods_Spotify2AppleMusic.framework in Frameworks */,
+				0ED2F0E11E662C8A004BBB31 /* SpotifyMetadata.framework in Frameworks */,
+				0ED2F0E01E662C8A004BBB31 /* SpotifyAuthentication.framework in Frameworks */,
+				0ED2F0EA1E663330004BBB31 /* SpotifyAudioPlayback.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +72,11 @@
 		C0671FF791BC0AC42ECCB712 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0ED2F0E91E663330004BBB31 /* SpotifyAudioPlayback.framework */,
+				0ED2F0E71E6632E9004BBB31 /* AVFoundation.framework */,
+				0ED2F0E41E662DF1004BBB31 /* SystemConfiguration.framework */,
+				0ED2F0DE1E662C8A004BBB31 /* SpotifyAuthentication.framework */,
+				0ED2F0DF1E662C8A004BBB31 /* SpotifyMetadata.framework */,
 				3B5AE6D5ED49AC7B5532F759 /* Pods_Spotify2AppleMusic.framework */,
 			);
 			name = Frameworks;
@@ -84,11 +106,12 @@
 				C53617B21E658E8E00D82BA4 /* AppDelegate.swift */,
 				C53617B41E658E8E00D82BA4 /* ViewController.swift */,
 				0E9DB8001E65FBC800FF4A1F /* Song.swift */,
-				C53617C41E65969B00D82BA4 /* MyPlayground.playground */,
+				0ED2F0E21E662CAB004BBB31 /* Spotify.swift */,
 				C53617B61E658E8E00D82BA4 /* Main.storyboard */,
 				C53617B91E658E8E00D82BA4 /* Assets.xcassets */,
 				C53617BB1E658E8E00D82BA4 /* LaunchScreen.storyboard */,
 				C53617BE1E658E8E00D82BA4 /* Info.plist */,
+				0ED2F0EB1E6633D6004BBB31 /* Spotify2AppleMusic-Bridging-Header.h */,
 			);
 			path = Spotify2AppleMusic;
 			sourceTree = "<group>";
@@ -129,6 +152,7 @@
 					C53617AE1E658E8E00D82BA4 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = ZGV2PY25EN;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -219,6 +243,7 @@
 			files = (
 				0E9DB8011E65FBC800FF4A1F /* Song.swift in Sources */,
 				C53617B51E658E8E00D82BA4 /* ViewController.swift in Sources */,
+				0ED2F0E31E662CAB004BBB31 /* Spotify.swift in Sources */,
 				C53617B31E658E8E00D82BA4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,11 +368,24 @@
 			baseConfigurationReference = 5E896B763DC6D4CADBE8F54C /* Pods-Spotify2AppleMusic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = ZGV2PY25EN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = Spotify2AppleMusic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Sweeft\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.quintero.Spotify2AppleMusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Spotify2AppleMusic/Spotify2AppleMusic-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -357,11 +395,23 @@
 			baseConfigurationReference = 7666B915D74335730B636C6B /* Pods-Spotify2AppleMusic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = ZGV2PY25EN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = Spotify2AppleMusic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Sweeft\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.quintero.Spotify2AppleMusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Spotify2AppleMusic/Spotify2AppleMusic-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

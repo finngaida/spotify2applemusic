@@ -8,29 +8,22 @@
 
 import UIKit
 import Sweeft
+import SafariServices
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        let song = SpotifySong(name: "Call me maybe", artist: "carly rae jepsen", album: "kiss")
-        ItunesAPI().search(for: song).onSuccess { item in
-            print(item)
-        }
-        .onError { error in
-            switch error {
-            case .invalidData(let data):
-                print(data.string.?)
-            default: break
-            }
-        }
         
         // Override point for customization after application launch.
         return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        return Spotify.shared.callback(url: url)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

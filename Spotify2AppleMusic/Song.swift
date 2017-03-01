@@ -14,6 +14,15 @@ struct SpotifySong {
     let album: String
 }
 
+extension SpotifySong {
+    
+    init(from track: SPTTrack) {
+        let artists = track.artists.flatMap { $0 as? SPTPartialArtist }
+        self.init(name: track.name, artist: artists.first?.name ?? "Unknown Artists", album: track.album.name)
+    }
+    
+}
+
 enum ItunesEndpoint: String, APIEndpoint {
     case search = "search"
 }
@@ -25,7 +34,7 @@ struct ItunesAPI: API {
 
 extension ItunesAPI {
     
-    func search(for song: SpotifySong) -> String.Result {
+    func search(for song: SpotifySong) -> Promise<String?, APIError> {
         return doJSONRequest(to: .search,
                              headers: ["X-Apple-Store-Front" : "143446-10,32 ab:rSwnYxS0 t:music2", "X-Apple-Tz" : "7200"],
                              queries: ["clientApplication": "MusicPlayer", "term": song.name]).nested { json, promise in
@@ -35,15 +44,14 @@ extension ItunesAPI {
             let matchingSongs = possibleSongs |> { (item: JSON) in
                 return item["artistName"].string?.lowercased() == song.artist.lowercased() && item["name"].string?.lowercased() == song.name.lowercased() && item["collectionName"].string?.lowercased() == song.album.lowercased()
             }
-            guard let id = matchingSongs.first?["id"].string else {
-                promise.error(with: .mappingError(json: json))
-            }
-            promise.success(with: id)
+            promise.success(with: matchingSongs.first?["id"].string)
         }
     }
     
     func search(for songs: [SpotifySong]) -> String.Results {
-        return BulkPromise(promises: songs => { self.search(for: $0) })
+        return BulkPromise(promises: songs => { self.search(for: $0) }).nested {
+            return $0.flatMap { $0 }
+        }
     }
     
 }
