@@ -23,34 +23,17 @@ extension SpotifySong {
     
 }
 
-enum ItunesEndpoint: String, APIEndpoint {
-    case search = "search"
+struct Song {
+    let name: String
+    let artist: String
+    let id: String
 }
 
-struct ItunesAPI: API {
-    typealias Endpoint = ItunesEndpoint
-    let baseURL: String = "https://itunes.apple.com/WebObjects/MZStore.woa/wa/"
-}
-
-extension ItunesAPI {
+extension Song {
     
-    func search(for song: SpotifySong) -> Promise<String?, APIError> {
-        return doJSONRequest(to: .search,
-                             headers: ["X-Apple-Store-Front" : "143446-10,32 ab:rSwnYxS0 t:music2", "X-Apple-Tz" : "7200"],
-                             queries: ["clientApplication": "MusicPlayer", "term": song.name]).nested { json, promise in
-                       
-                                
-            let possibleSongs = json["storePlatformData"]["lockup"]["results"].dict => lastArgument |> { $0["kind"].string == "song" }
-            let matchingSongs = possibleSongs |> { (item: JSON) in
-                return item["artistName"].string?.lowercased() == song.artist.lowercased() && item["name"].string?.lowercased() == song.name.lowercased() && item["collectionName"].string?.lowercased() == song.album.lowercased()
-            }
-            promise.success(with: matchingSongs.first?["id"].string)
-        }
-    }
-    
-    func search(for songs: [SpotifySong]) -> String.Results {
-        return BulkPromise(promises: songs => { self.search(for: $0) }).nested {
-            return $0.flatMap { $0 }
+    static func initializer(for song: SpotifySong) -> (String) -> Song {
+        return {
+            return Song(name: song.name, artist: song.artist, id: $0)
         }
     }
     

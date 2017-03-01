@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12106.1" systemVersion="16E175b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12074.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -38,15 +39,36 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.18204301890844943" green="0.44461397526202628" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hgfhedv" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sd5-im-M6H">
+                                <rect key="frame" x="32" y="606" width="311" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hju-D2-pTH">
+                                <rect key="frame" x="0.0" y="20" width="375" height="216"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="i8T-HW-31k"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6dJ-sa-C7q" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8hC-6y-1gQ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="sd5-im-M6H" secondAttribute="bottom" constant="40" id="MA9-pg-Jfw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sd5-im-M6H" secondAttribute="trailing" constant="16" id="N3p-aL-eNa"/>
                             <constraint firstItem="6dJ-sa-C7q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NJq-5J-yy4"/>
+                            <constraint firstAttribute="trailing" secondItem="hju-D2-pTH" secondAttribute="trailing" id="OcQ-Y1-5ER"/>
+                            <constraint firstItem="hju-D2-pTH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VPF-V4-qo6"/>
+                            <constraint firstItem="sd5-im-M6H" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="WH9-4Q-cjM"/>
+                            <constraint firstItem="sd5-im-M6H" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fF1-J0-0vX"/>
+                            <constraint firstItem="hju-D2-pTH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="sY0-NB-eXx"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="loader" destination="2z5-TW-HM5" id="BE9-1j-pN3"/>
+                        <outlet property="pickerView" destination="hju-D2-pTH" id="3Bc-8S-7oz"/>
+                        <outlet property="statusLabel" destination="sd5-im-M6H" id="ju4-TR-Sdp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

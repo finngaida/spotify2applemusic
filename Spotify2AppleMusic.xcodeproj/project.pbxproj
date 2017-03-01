@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E544E7D1E66599000DE1CA0 /* Itunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E544E7C1E66599000DE1CA0 /* Itunes.swift */; };
+		0E544E7F1E66601600DE1CA0 /* ImportSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E544E7E1E66601600DE1CA0 /* ImportSelection.swift */; };
 		0E9DB8011E65FBC800FF4A1F /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9DB8001E65FBC800FF4A1F /* Song.swift */; };
 		0ED2F0E01E662C8A004BBB31 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ED2F0DE1E662C8A004BBB31 /* SpotifyAuthentication.framework */; };
 		0ED2F0E11E662C8A004BBB31 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ED2F0DF1E662C8A004BBB31 /* SpotifyMetadata.framework */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E544E7C1E66599000DE1CA0 /* Itunes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Itunes.swift; sourceTree = "<group>"; };
+		0E544E7E1E66601600DE1CA0 /* ImportSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportSelection.swift; sourceTree = "<group>"; };
 		0E9DB8001E65FBC800FF4A1F /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		0ED2F0DE1E662C8A004BBB31 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyAuthentication.framework; path = Frameworks/SpotifyAuthentication.framework; sourceTree = "<group>"; };
 		0ED2F0DF1E662C8A004BBB31 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyMetadata.framework; path = Frameworks/SpotifyMetadata.framework; sourceTree = "<group>"; };
@@ -105,7 +109,9 @@
 			children = (
 				C53617B21E658E8E00D82BA4 /* AppDelegate.swift */,
 				C53617B41E658E8E00D82BA4 /* ViewController.swift */,
+				0E544E7E1E66601600DE1CA0 /* ImportSelection.swift */,
 				0E9DB8001E65FBC800FF4A1F /* Song.swift */,
+				0E544E7C1E66599000DE1CA0 /* Itunes.swift */,
 				0ED2F0E21E662CAB004BBB31 /* Spotify.swift */,
 				C53617B61E658E8E00D82BA4 /* Main.storyboard */,
 				C53617B91E658E8E00D82BA4 /* Assets.xcassets */,
@@ -242,8 +248,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E9DB8011E65FBC800FF4A1F /* Song.swift in Sources */,
+				0E544E7F1E66601600DE1CA0 /* ImportSelection.swift in Sources */,
 				C53617B51E658E8E00D82BA4 /* ViewController.swift in Sources */,
 				0ED2F0E31E662CAB004BBB31 /* Spotify.swift in Sources */,
+				0E544E7D1E66599000DE1CA0 /* Itunes.swift in Sources */,
 				C53617B31E658E8E00D82BA4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
