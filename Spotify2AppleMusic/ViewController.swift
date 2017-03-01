@@ -55,28 +55,32 @@ class ViewController: UIViewController {
     }
     
     func handle(songs: [Song]) {
-        statusLabel.text = ""
+        statusLabel.text = "Found \(songs.count) songs"
         MPMediaLibrary.requestAuthorization { (status) in
             guard status == MPMediaLibraryAuthorizationStatus.authorized else { return print("not authorized") }
             let myPlaylistsQuery = MPMediaQuery.playlists()
             guard let playlists = myPlaylistsQuery.collections else { return }
             
             func continueWith(index: Int) {
-                self.statusLabel.text = "Adding Songs to your Library"
+                .main >>> {
+                    self.statusLabel.text = "Adding Songs to your Library"
+                }
                 if let plist = playlists[index] as? MPMediaPlaylist {
                     var added = 0
                     songs => { song, index in
-                        plist.addItem(withProductID: song.id, completionHandler: { (error) in
-                            .main >>> {
-                                added += 1
-                                if error != nil {
-                                    self.statusLabel.text = "Failed to add \(song.name) by \(song.artist)"
-                                } else {
-                                    self.statusLabel.text = "Added \(song.name) by \(song.artist)"
+                        .userInitiated >>> {
+                            plist.addItem(withProductID: song.id, completionHandler: { (error) in
+                                .main >>> {
+                                    added += 1
+                                    if let error = error {
+                                        self.statusLabel.text = "Failed to add \(song.name) by \(song.artist): \(error.localizedDescription)"
+                                    } else {
+                                        self.statusLabel.text = "Added \(song.name) by \(song.artist)"
+                                    }
+                                    self.setProgress(p: CGFloat(added) / CGFloat(songs.count))
                                 }
-                                self.setProgress(p: CGFloat(added) / CGFloat(songs.count))
-                            }
-                        })
+                            })
+                        }
                     }
                 }
             }
