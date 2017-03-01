@@ -17,20 +17,31 @@ struct Itunes: API {
     let baseURL: String = "https://itunes.apple.com/WebObjects/MZStore.woa/wa/"
 }
 
+extension JSON {
+    
+    var isSong: Bool {
+        let offers = self["offers"].array => { $0["price"].double } |> { $0 == 0.0 }
+        return self["kind"].string == "song" && !offers.isEmpty
+    }
+    
+}
+
 extension Itunes {
     
     func search(for song: SpotifySong) -> Promise<Song?, APIError> {
         return doJSONRequest(to: .search,
                              headers: ["X-Apple-Store-Front" : "143446-10,32 ab:rSwnYxS0 t:music2", "X-Apple-Tz" : "7200"],
-                             queries: ["clientApplication": "MusicPlayer", "term": song.name]).nested { json, promise in
+                             queries: ["clientApplication": "MusicPlayer", "term": song.term, "entity": "song"]).nested { json, promise in
                                 
                                 
-                                let possibleSongs = json["storePlatformData"]["lockup"]["results"].dict => lastArgument |> { $0["kind"].string == "song" }
-                                let matchingSongs = possibleSongs |> { (item: JSON) in
-                                    return item["artistName"].string?.lowercased() == song.artist.lowercased() && item["name"].string?.lowercased() == song.name.lowercased()
-                                }
-                                let albumMatchingSongs = matchingSongs |> { $0["collectinName"].string?.lowercased() == song.album.lowercased() }
+                                let songs = json["storePlatformData"]["lockup"]["results"].dict => lastArgument |> { $0.isSong }
+                                let possibleSongs = songs |> song.artistMatches
+                                let matchingSongs = possibleSongs |> song.nameMatches
+                                let albumMatchingSongs = matchingSongs |> song.albumMatches
                                 let dict = albumMatchingSongs.first ?? matchingSongs.first
+                                if dict == nil {
+                                    print("Didn't find \(song.term)")
+                                }
                                 let song = dict?["id"].string | Song.initializer(for: song)
                                 promise.success(with: song)
         }
