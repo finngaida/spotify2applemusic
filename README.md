@@ -3,10 +3,10 @@
 Import your Spotify Playlists to Apple Music!
 
 ## Cool! How do I use this though?
-Okay, now to be honest I built this for myself, so it's not very user-friendly. For those willing to take the effort, here's a tutorial on how to use this:
+~~Okay, now to be honest I built this for myself, so it's not very user-friendly. For those willing to take the effort, here's a tutorial on how to use this:~~
 
-1. Get a Mac, this won't run on Windows
-2. Download [Xcode](https://itunes.apple.com/de/app/xcode/id497799835?mt=12) and open it once to install all it's ~~shit~~ stuff
+~~1. Get a Mac, this won't run on Windows
+2. Download [Xcode](https://itunes.apple.com/de/app/xcode/id497799835?mt=12) and open it once to install all it's shit stuff
 3. Shoot up a Terminal (⌘+Space → *Terminal*)
 4. Clone this repo to your Desktop (or somewhere you like) by typing `cd ~/Desktop; git clone https://github.com/finngaida/spotify2applemusic.git; cd spotify2applemusic` and hitting enter
 5. Now we need to get your Spotify List converted. Go to [Exportify](https://rawgit.com/watsonbox/exportify/master/exportify.html), log in, select your playlist and copy **ALL** the text on screen
@@ -16,7 +16,11 @@ Okay, now to be honest I built this for myself, so it's not very user-friendly. 
 9. Now you can open up the Xcode project, connect your phone, select your **developer account** for signing and hit Run.
 10. This will install the app onto your phone, press the humongous ***"GO"*** button to add the songs to your playlist
 11. ???
-12. Profit
+12. Profit~~
+
+Ok, I made this one a bit simpler. Now you just run the app on your device. Authenticate with spotify and your entire library will be exported. No .csv files
+
+I will probably add some capability of importing specifi playlists instead of everything. But this works for now ;)
 
 ## But why?
 Some people like me wanted to switch from Spotify to Apple Music, but didn't want to lose all their playlists, so here ya go
