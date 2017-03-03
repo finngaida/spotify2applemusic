@@ -7,48 +7,86 @@
 //
 
 import UIKit
+import Sweeft
 import MediaPlayer
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var loader: UIView!
+    
+    var selections: [ImportSelection] = [.all]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loader.frame = CGRect(x: 0, y: self.view.frame.height - 5, width: self.view.frame.width, height: 5)
+        statusLabel.text = ""
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Spotify.shared.loginIfNeeded(viewController: self)
+        Spotify.shared.playlists().onSuccess { selections in
+            self.selections = [.all] + selections
+            self.pickerView.reloadComponent(0)
+        }
     }
     
     func setProgress(p: CGFloat) {
-        UIView.animate(withDuration: 0.2) { 
+        if p == 1.0 {
+            statusLabel.text = ""
+        }
+        UIView.animate(withDuration: 0.5) {
             self.loader.frame = CGRect(x: 0, y: self.loader.frame.origin.y, width: self.view.frame.width * p, height: self.loader.frame.height)
         }
     }
     
     @IBAction func go() {
-        guard let csv = parseCSV() else { return print("no csv") }
-        
+        statusLabel.text = "Fetching Songs from Spotify"
+        self.setProgress(p: 0)
+        let index = pickerView.selectedRow(inComponent: 0)
+        selections[index].songs().onSuccess { songs -> Promise<[Song], APIError> in
+            self.statusLabel.text = "Finding Counterparts in Itunes"
+            return Itunes().search(for: songs)
+        }
+        .future
+        .onSuccess(call: self.handle)
+    }
+    
+    func handle(songs: [Song]) {
+        statusLabel.text = "Found \(songs.count) songs"
         MPMediaLibrary.requestAuthorization { (status) in
             guard status == MPMediaLibraryAuthorizationStatus.authorized else { return print("not authorized") }
             let myPlaylistsQuery = MPMediaQuery.playlists()
             guard let playlists = myPlaylistsQuery.collections else { return }
             
-            self.setProgress(p: 0)
-            
             func continueWith(index: Int) {
+                .main >>> {
+                    self.statusLabel.text = "Adding Songs to your Library"
+                }
                 if let plist = playlists[index] as? MPMediaPlaylist {
-                    for (i, id) in csv.enumerated() {
-                        plist.addItem(withProductID: id, completionHandler: { (error) in
-                            if let e = error { print("\(id) didn't end so well: \(e)") }
-                            else {
-                                print("added \(i): \(id)")
-                                self.setProgress(p: CGFloat(i+1) / CGFloat(csv.count))
-                            }
-                        })
+                    var added = 0
+                    songs => { song, index in
+                        .userInitiated >>> {
+                            plist.addItem(withProductID: song.id, completionHandler: { (error) in
+                                .main >>> {
+                                    added += 1
+                                    if let error = error {
+                                        self.statusLabel.text = "Failed to add \(song.name) by \(song.artist): \(error.localizedDescription)"
+                                    } else {
+                                        self.statusLabel.text = "Added \(song.name) by \(song.artist)"
+                                    }
+                                    self.setProgress(p: CGFloat(added) / CGFloat(songs.count))
+                                }
+                            })
+                        }
                     }
                 }
             }
             
             
-            let action = UIAlertController(title: "Choose your playlist", message: "add \(csv.count) tracks", preferredStyle: .actionSheet)
+            let action = UIAlertController(title: "Choose your playlist", message: "add \(songs.count) tracks", preferredStyle: .actionSheet)
             for (i, playlist) in playlists.enumerated() {
                 let name = playlist.value(forProperty: MPMediaPlaylistPropertyName) ?? "no name"
                 
@@ -59,19 +97,22 @@ class ViewController: UIViewController {
             action.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             self.present(action, animated: true, completion: nil)
         }
-        
     }
     
-    func parseCSV() -> [String]? {
-        
-        do {
-            let str = try String(contentsOfFile: Bundle.main.path(forResource: "itunes", ofType: "csv")!)
-            let ids = str.components(separatedBy: "\n")
-            return ids
-        } catch let e {
-            print("error \(e)")
-            return nil
-        }
+}
+
+extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return selections.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return selections[row].description
     }
     
 }
