@@ -18,5 +18,5 @@ Some people like me wanted to switch from Spotify to Apple Music, but didn't wan
 I don't know if you can, but you may, this project is licensed [MIT](LICENSE), so you can even redistribute it, as long as you mention me somehow.
 
 ## Credits
-Go to my friend Felix, who had the idea for this and to [mathiasquintero](https://github.com/mathiasquintero] who did a huge pull request adding Spotify integration and more convenience.
+Go to my friend Felix, who had the idea for this and to [mathiasquintero](https://github.com/mathiasquintero) who did a huge pull request adding Spotify integration and more convenience.
 The icon was made by [Skirmantas Raila](https://dribbble.com/shots/1783674-iTunes).
