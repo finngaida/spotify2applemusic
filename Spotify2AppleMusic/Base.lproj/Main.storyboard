@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12106.1" systemVersion="16E175b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12074.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -51,16 +51,29 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="i8T-HW-31k"/>
                                 </connections>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kuh-gg-exJ">
+                                <rect key="frame" x="162" y="477" width="51" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="51" id="WLg-1N-hn5"/>
+                                    <constraint firstAttribute="height" constant="30" id="g6t-se-POl"/>
+                                </constraints>
+                                <state key="normal" title="Relogin"/>
+                                <connections>
+                                    <action selector="relogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0u5-n6-CVT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6dJ-sa-C7q" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8hC-6y-1gQ"/>
+                            <constraint firstItem="Kuh-gg-exJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GEB-cC-Yqx"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="sd5-im-M6H" secondAttribute="bottom" constant="40" id="MA9-pg-Jfw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sd5-im-M6H" secondAttribute="trailing" constant="16" id="N3p-aL-eNa"/>
                             <constraint firstItem="6dJ-sa-C7q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NJq-5J-yy4"/>
                             <constraint firstAttribute="trailing" secondItem="hju-D2-pTH" secondAttribute="trailing" id="OcQ-Y1-5ER"/>
                             <constraint firstItem="hju-D2-pTH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VPF-V4-qo6"/>
                             <constraint firstItem="sd5-im-M6H" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="WH9-4Q-cjM"/>
+                            <constraint firstItem="Kuh-gg-exJ" firstAttribute="top" secondItem="6dJ-sa-C7q" secondAttribute="bottom" constant="71" id="ZaR-NY-eqG"/>
                             <constraint firstItem="sd5-im-M6H" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fF1-J0-0vX"/>
                             <constraint firstItem="hju-D2-pTH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="sY0-NB-eXx"/>
                         </constraints>

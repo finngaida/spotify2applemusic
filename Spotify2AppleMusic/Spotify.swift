@@ -98,8 +98,8 @@ class Spotify {
         return promise
     }
     
-    func loginIfNeeded(viewController: UIViewController) {
-        guard let session = auth.session, session.isValid() else {
+    func login(ifNeeded: Bool, viewController: UIViewController) {
+        guard let session = auth.session, session.isValid() && ifNeeded else {
             let url = auth.spotifyWebAuthenticationURL()
             authViewController = SFSafariViewController(url: url!)
             guard let vc = authViewController else {

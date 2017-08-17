@@ -26,11 +26,15 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        Spotify.shared.loginIfNeeded(viewController: self)
+        Spotify.shared.login(ifNeeded: true, viewController: self)
         Spotify.shared.playlists().onSuccess { selections in
             self.selections = [.all] + selections
             self.pickerView.reloadComponent(0)
         }
+    }
+    
+    @IBAction func relogin(_ sender: Any) {
+        Spotify.shared.login(ifNeeded: false, viewController: self)
     }
     
     func setProgress(p: CGFloat) {
